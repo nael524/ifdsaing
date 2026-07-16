@@ -269,7 +269,7 @@ function Bendahara() {
                         </h3>
                     </div>
                     <div className="hero-balance-box main-box">
-                        <span className="balance-label">Total Uang Cash (Global)</span>
+                        <span className="balance-label">Total Uang Cash</span>
                         <h2 className="balance-amount">
                             {new Intl.NumberFormat("id-ID", {
                                 style: "currency",
