@@ -127,6 +127,43 @@
     /* Skema hijau emerald natural */
 }
 
+/* Style untuk badge status */
+.status-badge.active {
+    color: #2ec4b6;
+    background-color: rgba(46, 196, 182, 0.15);
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.status-badge.non-active {
+    color: #e63946;
+    background-color: rgba(230, 57, 70, 0.15);
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+/* Custom Scrollbar untuk kontainer tabel */
+.table-responsive-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-responsive-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-responsive-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.table-responsive-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
 /* --- MEDIA QUERIES RESPONSIVE MOBILE TAMPILAN CARD --- */
 @media (max-width: 768px) {
     .data-container {

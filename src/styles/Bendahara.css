@@ -58,6 +58,88 @@
     transform: translateY(0);
 }
 
+/* Container pembungkus utama agar tabel bisa digeser secara horizontal di HP */
+.table-responsive-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Scroll lebih mulus di perangkat iOS */
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Memastikan lebar minimal tabel agar isi kolom tidak ringsek/gepeng saat layar sangat sempit */
+.kas-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+}
+
+/* Scrollbar kustom estetis untuk slider tabel */
+.table-responsive-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-responsive-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.table-responsive-container::-webkit-scrollbar-thumb {
+    background: #ff7a00;
+    /* Menyesuaikan warna oranye tema bendahara */
+    border-radius: 10px;
+}
+
+/* Media Query Khusus Layar Mobile (Lebar maksimal 768px) */
+@media screen and (max-width: 768px) {
+
+    /* Optimasi padding sel tabel */
+    .kas-table th,
+    .kas-table td {
+        padding: 10px 8px !important;
+        font-size: 13px;
+    }
+
+    /* Sembunyikan sub-tag agar baris nama tidak terlalu tebal */
+    .td-name-val .sub-tag {
+        display: none !important;
+    }
+
+    /* Perkecil visual checkbox & checkmark */
+    .checkbox-container,
+    .checkmark-box {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Perkecil visual tag tanggal di bawah checkbox */
+    .date-stamp {
+        font-size: 9px !important;
+        padding: 2px 4px;
+    }
+
+    /* Susun input filter & tombol simpan menjadi berurutan ke bawah (vertikal) */
+    .control-bar {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .search-box-wrapper,
+    .period-filter-wrapper,
+    .btn-save-db {
+        width: 100% !important;
+    }
+
+    .select-custom {
+        flex: 1;
+        /* Dropdown bulan & tahun membagi rata lebar layar */
+    }
+}
+
 @media (max-width: 768px) {
     .stats-container-row {
         flex-direction: column;
@@ -252,7 +334,7 @@
     background-color: #ff9000;
     color: #ffffff;
     padding: 1.2rem 1rem;
-    font-size: 0.85rem;
+    font-size: 0.80rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -268,7 +350,8 @@
 }
 
 .th-week {
-    width: 150px;
+    width: 160px;
+
     text-align: center;
 }
 
@@ -397,6 +480,47 @@
     display: inline-block;
     animation: spin 0.8s linear infinite;
     margin-bottom: 1rem;
+}
+
+/* --- DESAIN SCROLLBAR KUSTOM UNTUK TABEL RESPONSIF --- */
+
+/* 1. Mengatur lebar dan tinggi scrollbar */
+.table-responsive-container::-webkit-scrollbar {
+    width: 8px;
+    /* Lebar scrollbar vertikal */
+    height: 8px;
+    /* Tinggi scrollbar horizontal (yang muncul di HP) */
+}
+
+/* 2. Mengatur area latar belakang (track) scrollbar */
+.table-responsive-container::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    /* Warna abu-abu terang yang bersih */
+    border-radius: 10px;
+    /* Membuat sudut track membulat */
+}
+
+/* 3. Mengatur batang geser (thumb) scrollbar */
+.table-responsive-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    /* Warna abu-abu medium saat diam */
+    border-radius: 10px;
+    /* Membuat sudut batang membulat */
+    border: 2px solid #f1f5f9;
+    /* Efek padding di dalam track */
+    transition: background 0.3s ease;
+}
+
+/* 4. Mengatur batang geser saat diarahkan oleh kursor (hover) */
+.table-responsive-container::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+    /* Warna menjadi sedikit lebih gelap saat disentuh/di-hover */
+}
+
+/* 5. Mengatur batang geser saat aktif diklik/digeser (active) */
+.table-responsive-container::-webkit-scrollbar-thumb:active {
+    background: #ff7a00;
+    /* Berubah menjadi warna oranye khas tema Bendahara saat digeser */
 }
 
 @keyframes spin {

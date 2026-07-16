@@ -3,6 +3,22 @@ import Header from "../components/Header";
 import mahasiswa from "../components/mahasiswa";
 
 function Data() {
+    // List mahasiswa yang sudah tidak aktif
+    const nonAktifList = ["Fransisco Purba", "adinda aulia"];
+
+    const cekStatusMhs = (namaMhs) => {
+        if (!namaMhs) return { teks: "Aktif", kelas: "active" };
+
+        // Membandingkan dengan huruf kecil agar tidak sensitif huruf kapital
+        const isNonAktif = nonAktifList.some(
+            (nama) => namaMhs.toLowerCase().trim() === nama.toLowerCase().trim()
+        );
+
+        return isNonAktif
+            ? { teks: "Tidak Aktif", kelas: "non-active" }
+            : { teks: "Aktif", kelas: "active" };
+    };
+
     return (
         <>
             <Header /><br /><br /><br />
@@ -17,8 +33,8 @@ function Data() {
                         </p>
                     </div>
 
-                    {/* Wrapper Tabel & Card Konten Responsif */}
-                    <div className="table-responsive-container">
+                    {/* Wrapper Tabel & Card Konten Responsif dengan Scrollbar */}
+                    <div className="table-responsive-container" style={{ overflowX: "auto", maxHeight: "500px", overflowY: "auto" }}>
                         <table className="students-table">
                             <thead>
                                 <tr>
@@ -29,22 +45,27 @@ function Data() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {mahasiswa.map((nama, index) => (
-                                    <tr key={index}>
-                                        <td className="col-num-data" data-label="No.">
-                                            {index + 1}
-                                        </td>
-                                        <td className="col-name-data" data-label="Nama">
-                                            <strong>{nama}</strong>
-                                        </td>
-                                        <td className="col-class-data" data-label="Kelas">
-                                            IF D Siang
-                                        </td>
-                                        <td className="col-status-data" data-label="Status">
-                                            <span className="status-badge active">● Aktif</span>
-                                        </td>
-                                    </tr>
-                                ))}
+                                {mahasiswa.map((nama, index) => {
+                                    const status = cekStatusMhs(nama);
+                                    return (
+                                        <tr key={index}>
+                                            <td className="col-num-data" data-label="No.">
+                                                {index + 1}
+                                            </td>
+                                            <td className="col-name-data" data-label="Nama">
+                                                <strong>{nama}</strong>
+                                            </td>
+                                            <td className="col-class-data" data-label="Kelas">
+                                                IF D Siang
+                                            </td>
+                                            <td className="col-status-data" data-label="Status">
+                                                <span className={`status-badge ${status.kelas}`}>
+                                                    ● {status.teks}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
                             </tbody>
                         </table>
                     </div>

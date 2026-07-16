@@ -345,54 +345,57 @@ function Bendahara() {
                     <p>Memuat lembar kas {selectedMonth} {selectedYear}...</p>
                 </div>
             ) : (
-                <div className="table-wrapper">
-                    <table className="kas-table">
-                        <thead>
-                            <tr>
-                                <th className="th-num">No.</th>
-                                <th className="th-name">Nama Mahasiswa</th>
-                                <th className="th-week">Minggu 1</th>
-                                <th className="th-week">Minggu 2</th>
-                                <th className="th-week">Minggu 3</th>
-                                <th className="th-week">Minggu 4</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredMahasiswa.map((nama, idx) => {
-                                const kas = dataKas[nama] || {
-                                    w1: false, w2: false, w3: false, w4: false,
-                                    w1_date: "", w2_date: "", w3_date: "", w4_date: ""
-                                };
+                /* Pembungkus Tambahan Untuk Efek Horizontal Scroll di Handphone */
+                <div className="table-responsive-container">
+                    <div className="table-wrapper">
+                        <table className="kas-table">
+                            <thead>
+                                <tr>
+                                    <th className="th-num">No.</th>
+                                    <th className="th-name">Nama Mahasiswa</th>
+                                    <th className="th-week">Minggu 1</th>
+                                    <th className="th-week">Minggu 2</th>
+                                    <th className="th-week">Minggu 3</th>
+                                    <th className="th-week">Minggu 4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filteredMahasiswa.map((nama, idx) => {
+                                    const kas = dataKas[nama] || {
+                                        w1: false, w2: false, w3: false, w4: false,
+                                        w1_date: "", w2_date: "", w3_date: "", w4_date: ""
+                                    };
 
-                                return (
-                                    <tr key={nama}>
-                                        <td className="td-num-val">{idx + 1}</td>
-                                        <td className="td-name-val">
-                                            <strong>{nama}</strong>
-                                            <span className="sub-tag">IF D Siang</span>
-                                        </td>
-
-                                        {["w1", "w2", "w3", "w4"].map((minggu) => (
-                                            <td key={minggu} className="td-checkbox-cell">
-                                                <label className="checkbox-container">
-                                                    <input
-                                                        type="checkbox"
-                                                        checked={kas[minggu]}
-                                                        onChange={() => handleCheckboxChange(nama, minggu)}
-                                                        disabled={isSaving}
-                                                    />
-                                                    <span className="checkmark-box"></span>
-                                                </label>
-                                                {kas[`${minggu}_date`] && (
-                                                    <span className="date-stamp">{kas[`${minggu}_date`]}</span>
-                                                )}
+                                    return (
+                                        <tr key={nama}>
+                                            <td className="td-num-val">{idx + 1}</td>
+                                            <td className="td-name-val">
+                                                <strong>{nama}</strong>
+                                                <span className="sub-tag">IF D Siang</span>
                                             </td>
-                                        ))}
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
+
+                                            {["w1", "w2", "w3", "w4"].map((minggu) => (
+                                                <td key={minggu} className="td-checkbox-cell">
+                                                    <label className="checkbox-container">
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={kas[minggu]}
+                                                            onChange={() => handleCheckboxChange(nama, minggu)}
+                                                            disabled={isSaving}
+                                                        />
+                                                        <span className="checkmark-box"></span>
+                                                    </label>
+                                                    {kas[`${minggu}_date`] && (
+                                                        <span className="date-stamp">{kas[`${minggu}_date`]}</span>
+                                                    )}
+                                                </td>
+                                            ))}
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             )}
         </div>
