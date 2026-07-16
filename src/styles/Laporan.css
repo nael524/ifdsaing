@@ -1,0 +1,237 @@
+/* Container Utama */
+.laporan-container {
+    min-height: 100vh;
+    background-color: #fcfbfa;
+    padding: 120px 24px 60px 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.laporan-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Header Halaman */
+.laporan-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.laporan-tag {
+    background-color: #fff3e0;
+    color: #e65100;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.laporan-header h1 {
+    font-size: 2.2rem;
+    color: #1e1e1e;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.laporan-header .sub-title {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Loading Spinner */
+.laporan-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+}
+
+.spinner-orange {
+    width: 45px;
+    height: 45px;
+    border: 4px solid #ffe0b2;
+    border-top: 4px solid #ff6d00;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.laporan-loading p {
+    color: #555;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Empty State */
+.laporan-empty {
+    text-align: center;
+    padding: 80px 0;
+    background-color: #fff;
+    border-radius: 16px;
+    border: 1px dashed #e0dcd3;
+}
+
+.laporan-empty p {
+    color: #777;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Grid Layout Responsif */
+.laporan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+/* Kartu Laporan (Card Style) */
+.laporan-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 18px rgba(230, 81, 0, 0.04);
+    border: 1px solid #f2ece4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.laporan-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(230, 81, 0, 0.08);
+}
+
+/* Bagian Atas Kartu */
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    gap: 12px;
+}
+
+.user-profile-info h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.15rem;
+    color: #2e2e2e;
+    font-weight: 600;
+}
+
+.user-subtext {
+    font-size: 0.75rem;
+    color: #8c8c8c;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Badge Status Kategori */
+.status-badge {
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.badge-sakit {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+
+.badge-izin {
+    background-color: #efebe9;
+    color: #4e342e;
+}
+
+.badge-alpha {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.badge-lainnya {
+    background-color: #eceff1;
+    color: #37474f;
+}
+
+/* Bagian Isi Kartu */
+.card-body-content {
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.pesan-text {
+    font-size: 0.92rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin: 0;
+    word-break: break-word;
+}
+
+/* Bagian Bawah Kartu */
+.card-footer-info {
+    border-top: 1px solid #f9f6f0;
+    padding-top: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-time-wrapper {
+    display: flex;
+    align-items: center;
+    color: #8c8c8c;
+    gap: 8px;
+}
+
+.clock-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.date-text {
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+/* Modifikasi Responsif Media Query */
+@media (max-width: 768px) {
+    .laporan-container {
+        padding: 100px 16px 40px 16px;
+    }
+
+    .laporan-header {
+        margin-bottom: 32px;
+    }
+
+    .laporan-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .laporan-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}

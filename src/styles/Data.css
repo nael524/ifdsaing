@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.data-container {
+    min-height: calc(100vh - 80px);
+    background-color: #f8fafc;
+    /* Latar belakang abu-abu ultra terang profesional */
+    padding: 3rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.data-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    /* Lebar maksimal area tabel di desktop */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* --- Bagian Header --- */
+.data-header-section {
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 1rem;
+}
+
+.data-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.25rem 0;
+    letter-spacing: -0.5px;
+}
+
+.data-subtitle {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* --- Desain Tabel Profesional --- */
+.table-responsive-container {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 10px 15px -3px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    /* Mengunci border-radius tabel */
+}
+
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.students-table th {
+    background-color: #0f172a;
+    /* Warna gelap solid premium */
+    color: #ffffff;
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.students-table td {
+    padding: 1rem 1.25rem;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background-color 0.2s ease;
+}
+
+/* Efek Baris Selang Seling & Hover */
+.students-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.students-table tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* Lebar Kolom Tertentu */
+.col-num {
+    width: 80px;
+    text-align: center;
+}
+
+.col-num-data {
+    text-align: center;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.col-name {
+    min-width: 250px;
+}
+
+.col-class {
+    width: 150px;
+}
+
+.col-status {
+    width: 120px;
+}
+
+/* --- Badge Status Aktif --- */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.status-badge.active {
+    background-color: #d1fae5;
+    color: #065f46;
+    /* Skema hijau emerald natural */
+}
+
+/* --- MEDIA QUERIES RESPONSIVE MOBILE TAMPILAN CARD --- */
+@media (max-width: 768px) {
+    .data-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .data-title {
+        font-size: 1.6rem;
+    }
+
+    /* Mengubah Susunan Tabel menjadi Layout Card */
+    .students-table,
+    .students-table thead,
+    .students-table tbody,
+    .students-table th,
+    .students-table tr,
+    .students-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .students-table thead {
+        display: none;
+        /* Sembunyikan Header Kolom Asli */
+    }
+
+    .students-table tr {
+        background: #ffffff !important;
+        border-bottom: 8px solid #f1f5f9;
+        /* Pembatas antar baris tebal seperti card */
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    .students-table td {
+        text-align: right;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #f1f5f9;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+
+    .students-table td:last-child {
+        border-bottom: none;
+    }
+
+    /* Memunculkan Label Kiri via data-attribute HTML */
+    .students-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #94a3b8;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+    }
+
+    .col-num-data,
+    .col-name-data {
+        text-align: right;
+    }
+}

@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.login-container {
+    min-height: calc(100vh - 80px);
+    /* Menyesuaikan tinggi agar pas setelah Header */
+    background: radial-gradient(circle at 0% 0%, #f8fafc 0%, #f1f5f9 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Card Wrapper Utama */
+.login-card-wrapper {
+    background: #ffffff;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 580px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.08),
+        0 0 0 1px rgba(15, 23, 42, 0.02);
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ========================================================
+   KOLOM KIRI: VISUAL BRANDING SIDE (TAMPIL DI DESKTOP)
+   ======================================================== */
+.login-visual-side {
+    flex: 1.1;
+    background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop');
+    /* Abstrak Premium */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3.5rem;
+    color: #ffffff;
+}
+
+.visual-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.95) 100%);
+    z-index: 1;
+}
+
+.visual-content {
+    position: relative;
+    z-index: 2;
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.badge-tag {
+    background: rgba(255, 144, 0, 0.2);
+    border: 1px solid rgba(255, 144, 0, 0.4);
+    color: #ff9000;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 1.2rem;
+}
+
+.visual-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 1rem 0;
+    color: #ffffff;
+}
+
+.visual-content p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========================================================
+   KOLOM KANAN: FORM SIDE
+   ======================================================== */
+.login-form-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3.5rem;
+    background: #ffffff;
+}
+
+.form-container-box {
+    width: 100%;
+    max-width: 360px;
+}
+
+.form-header {
+    margin-bottom: 2.2rem;
+}
+
+.form-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.5px;
+}
+
+.form-header p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* FORM INPUTS (FLOATING LABELS) */
+.modern-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group-floating {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-floating input {
+    width: 100%;
+    padding: 0.8rem 0;
+    border: none;
+    border-bottom: 2px solid #cbd5e1;
+    background: transparent;
+    outline: none;
+    font-size: 0.95rem;
+    color: #0f172a;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+/* Label mengambang pasif */
+.form-group-floating label {
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Animasi ketika input fokus atau sudah berisi teks */
+.form-group-floating input:focus~label,
+.form-group-floating input:not(:placeholder-shown)~label {
+    top: -12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ff9000;
+}
+
+/* Efek garis bawah dinamis saat aktif */
+.input-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff9000;
+    transition: width 0.3s ease;
+}
+
+.form-group-floating input:focus~.input-line {
+    width: 100%;
+}
+
+.form-group-floating input:focus {
+    border-bottom-color: transparent;
+}
+
+/* Tombol Sembunyikan/Tampilkan Password */
+.password-group {
+    position: relative;
+}
+
+.toggle-password-btn {
+    position: absolute;
+    right: 0;
+    top: 0.8rem;
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.toggle-password-btn:hover {
+    color: #ff9000;
+}
+
+/* Form Options (Ingat saya & Lupa password) */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #475569;
+    cursor: pointer;
+    position: relative;
+}
+
+.checkbox-label input {
+    cursor: pointer;
+}
+
+.forgot-password-link {
+    color: #ff9000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.forgot-password-link:hover {
+    color: #e07f00;
+    text-decoration: underline;
+}
+
+/* Tombol Submit Login */
+.login-submit-btn {
+    background-color: #ff9000;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 144, 0, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.login-submit-btn:hover {
+    background-color: #e07f00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 144, 0, 0.35);
+}
+
+.login-submit-btn:active {
+    transform: translateY(0);
+}
+
+.login-submit-btn:disabled {
+    background-color: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Spinner untuk tombol loading */
+.spinner-mini {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spinButton 0.8s linear infinite;
+    margin-right: 10px;
+}
+
+/* Footer Card */
+.form-footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.form-footer a {
+    color: #ff9000;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.form-footer a:hover {
+    color: #e07f00;
+    text-decoration: underline;
+}
+
+/* ========================================================
+   KEYFRAMES & MEDIA QUERIES (RESPONSIVE)
+   ======================================================== */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spinButton {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+    .login-card-wrapper {
+        max-width: 500px;
+    }
+
+    .login-visual-side {
+        display: none;
+        /* Menyembunyikan kolom visual di tablet ke bawah */
+    }
+
+    .login-form-side {
+        padding: 3rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 1rem;
+    }
+
+    .login-card-wrapper {
+        border-radius: 16px;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+    }
+
+    .login-form-side {
+        padding: 2rem 1rem;
+        background: transparent;
+    }
+
+    .form-container-box {
+        background: #ffffff;
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+}

@@ -1,0 +1,174 @@
+/* Import Font Google jika belum di-import global */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.cash-container {
+    min-height: calc(100vh - 80px);
+    /* Menyesuaikan tinggi dikurangi estimasi tinggi Header */
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.cash-wrapper {
+    width: 100%;
+    max-width: 440px;
+    /* Ukuran mobile-first ideal sesuai gambar mockup */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* --- Row Judul & Tombol Bendahara --- */
+.cash-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.cash-main-title {
+    font-size: 2.1rem;
+    letter-spacing: -2px;
+    font-weight: 500;
+    color: #0c0f1d;
+    margin: 0;
+}
+
+.bendahara-btn {
+    background-color: #ff9000;
+    /* Warna Oranye Khas */
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 144, 0, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.bendahara-btn:hover {
+    background-color: #e07f00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 144, 0, 0.35);
+}
+
+.bendahara-btn:active {
+    transform: translateY(0);
+}
+
+/* --- Pengaturan Umum Kartu (Cards) --- */
+.cash-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(230, 230, 230, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cash-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Detail Konten Kartu --- */
+.card-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #8c8f9a;
+    margin: 0 0 0.8rem 0;
+}
+
+.label-center {
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: -1px;
+    color: #12151c;
+    margin-bottom: 0.5rem;
+}
+
+/* Card 1: Total Uang Cash */
+.total-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+.cash-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #27ae60;
+    /* Hijau Segar sesuai gambar */
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+/* Info Card (Card 2 & 3) */
+.info-card .card-label {
+    margin-bottom: 0.8rem;
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+/* Wrapper untuk Ikon */
+.icon-wrapper {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-wrapper svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Skema Warna Ikon */
+.blue-icon {
+    background-color: #eef2ff;
+    color: #0f52ba;
+    /* Biru representatif */
+}
+
+.darkblue-icon {
+    background-color: #f0f4f9;
+    color: #0047ab;
+    /* Biru tua elegan */
+}
+
+/* Nilai/Data di dalam Card */
+.count-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0b3c95;
+    /* Sesuai warna di gambar */
+}
+
+.date-value {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #6d7278;
+}
+
+/* Responsif untuk Layar Sangat Kecil */
+@media (max-width: 360px) {
+    .cash-main-title {
+        font-size: 1.8rem;
+    }
+
+    .cash-amount {
+        font-size: 1.7rem;
+    }
+}
