@@ -3,7 +3,7 @@ const mahasiswa = [
     "Adinda Aulia",
     "Agnes Hagatha Panjaitan",
     "Ahmad Fadhli",
-    "Alfrido Cristian sinaga",
+    "Alfrido Cristian Sinaga",
     "Andrea Saputra Barus",
     "Anita Br Tarigan",
     "Apriliani Br Surbakti",
