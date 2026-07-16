@@ -8,7 +8,7 @@ const mahasiswa = [
     "Anita Br Tarigan",
     "Apriliani Br Surbakti",
     "Arif Riansyah Lubis",
-    "Benny Joseph",
+    "Benny Josepin",
     "Catur Riansyah Wicaksono",
     "Chania Dwi Marsha Br Barus",
     "Chrisna Rizky Fernando Sirait",
